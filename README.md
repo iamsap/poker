@@ -14,3 +14,6 @@ After the flop, John is winning with a pair
 After the turn, Paul is winning with a two pair
 After the river, Paul is winning with a two pair
 ```
+
+The step-by-step tutorial on how to build this poker game can be found on my website
+[blog.iamsap.com](https://blog.iamsap.com/category/courses/node-js/texas-hold-em/)
