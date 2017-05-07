@@ -1,11 +1,14 @@
 # Poker
-This is the repository from my course on how to build a simple poker game in Node.js.  The game couldn't be simplier.
+This is the repository from my course on how to build a fully functional Texas Hold 'Em game in Node.js.  To run a simulated 
+game, just run the following command:
 
 ```
 node game.js
 ```
 
-Creates 4 players (John, Paul, George, and Ringo) and then deals them as you would expect in a round of Texas Hold 'Em.
+The game creates 4 players (John, Paul, George, and Ringo) and then deals them as you would expect in a round of Texas Hold 'Em.
+Feel free to fork this repository and extend in any way you see fit.  If you make any improvements I want to hear about them, so 
+contact me via twitter [@robbymillsap](http://twitter.com/robbymillsap).
 
 ```
 # output
