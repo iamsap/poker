@@ -1,0 +1,23 @@
+{
+  "name": "@iamsap/poker",
+  "version": "0.0.1",
+  "description": "A simple poker simulation",
+  "main": "game.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/iamsap/poker.git"
+  },
+  "keywords": [
+    "poker",
+    "node.js"
+  ],
+  "author": "robbymillsap@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamsap/poker/issues"
+  },
+  "homepage": "https://github.com/iamsap/poker#readme"
+}
