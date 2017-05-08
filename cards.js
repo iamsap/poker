@@ -42,14 +42,14 @@ function getValue(valueName){
 function toCard(val) {
     var parts = val.split(' ');
     if (parts.length != 3) {
-        throw new Exception(`I don't know how to parse ${val}`);
+        throw new Error(`I don't know how to parse ${val}`);
     }
 
     var cardName = parts[0];    // <val>,of,suit
     var cardVal = getValue(cardName);
 
     if (cardVal == -1) {
-        throw new Exception(`I don't know how to translate ${cardVal} into a card value.  Try one of these: ${CARD_NAMES}`);
+        throw new Error(`I don't know how to translate ${cardVal} into a card value.  Try one of these: ${CARD_NAMES}`);
     }
 
     var suitName = parts[2];  // val,of, <suit>
@@ -61,7 +61,7 @@ function toCard(val) {
     });
 
     if (!card) {
-        throw new Exception(`I don't know how to translate ${suitName} into a suit.  Try one of these: ${SUITS}`);
+        throw new Error(`I don't know how to translate ${suitName} into a suit.  Try one of these: ${SUITS}`);
     }else {
         return card;
     }
