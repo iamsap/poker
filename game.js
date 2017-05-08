@@ -55,13 +55,10 @@ echoBestPlayer('deal');
 
 // now the flop
 commonCards = deck.splice(0, 3);
-
 echoBestPlayer('flop');
 
 commonCards.push.apply(commonCards, deck.splice(0, 1));
-
 echoBestPlayer('turn');
 
 commonCards.push.apply(commonCards, deck.splice(0, 1));
-
 echoBestPlayer('river');

@@ -7,8 +7,9 @@ const THREE_OF_A_KIND = 3;
 const STRAIGHT = 4;
 const FLUSH = 5;
 const FULL_HOUSE = 6;
-const STRAIGHT_FLUSH = 7;
-const ROYAL_FLUSH = 8;
+const FOUR_OF_A_KIND = 7;
+const STRAIGHT_FLUSH = 8;
+const ROYAL_FLUSH = 9;
 
 var cardLib = require('./cards');
 
@@ -30,6 +31,8 @@ function getName(val){
             return "flush";
         case FULL_HOUSE:
             return "full house";
+        case FOUR_OF_A_KIND:
+            return "four of a kind";
         case STRAIGHT_FLUSH:
             return "straight flush";
         case ROYAL_FLUSH:
@@ -44,6 +47,10 @@ function getBestHand(cards) {
 
     if (!hand) {
         hand = getStraightFlush(cards);
+    }
+
+    if (!hand) {
+        hand = getFourOfAKind(cards);
     }
 
     if (!hand) {
@@ -225,6 +232,34 @@ function getStraight(cards) {
 
     return null;
 }
+
+function getFourOfAKind(cards) {
+    var matches = {};
+
+    for (var i = 0; i < cards.length; i++) {
+        if (!matches[cards[i].value]) {
+            matches[cards[i].value] = [];
+        }
+        matches[cards[i].value].push(cards[i]);
+    }
+
+    var pair = null;
+
+    Object.keys(matches).forEach((val, idx) => {
+        var cards = matches[val];
+        if (cards.length == 4) {
+            pair = cards;
+            return;
+        }
+    });
+
+    if (pair && pair.length == 3) {
+        return {value: FOUR_OF_A_KIND, cards: pair};
+    }
+
+    return null;
+}
+
 function getThreeOfAKind(cards) {
     var matches = {};
 
@@ -251,6 +286,7 @@ function getThreeOfAKind(cards) {
 
     return null;
 }
+
 function getTwoPair(cards) {
     var matches = {};
 
