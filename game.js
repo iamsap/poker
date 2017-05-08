@@ -33,13 +33,7 @@ function getPlayerWithBestHand(){
 
 function echoBestPlayer(round){
     getPlayerWithBestHand();
-
-    var bestPlayerCards = bestPlayer.pocketCards.slice(0);
-    bestPlayerCards.push.apply(bestPlayerCards, commonCards.slice(0));
-
-    var hand = hands.getBestHand(bestPlayerCards);
-
-    console.log(`After the ${round}, ${bestPlayer.name} is winning with a ${hands.getName(hand.value)}`);
+    console.log(`After the ${round}, ${bestPlayer.name} is winning with a ${hands.getName(bestHand.value)}`);
 }
 
 var players = [{name: "John"}, {name: "Paul"}, {name: "George"}, {name: "Ringo"}];
