@@ -4,8 +4,9 @@ var cards = require('./cards');
 var hands = require('./hands');
 
 function getPlayerWithBestHand(){
-    var bestPlayer = null;
-    var bestHand = null;
+    bestPlayer = null;
+    bestHand = null;
+
     for(var i = 0; i < players.length;i++){
 
         var playerCards = players[i].pocketCards.slice(0);
@@ -30,7 +31,9 @@ function getPlayerWithBestHand(){
     return bestPlayer;
 }
 
-function echoBestPlayer(bestPlayer, round){
+function echoBestPlayer(round){
+    getPlayerWithBestHand();
+
     var bestPlayerCards = bestPlayer.pocketCards.slice(0);
     bestPlayerCards.push.apply(bestPlayerCards, commonCards.slice(0));
 
@@ -41,7 +44,11 @@ function echoBestPlayer(bestPlayer, round){
 
 var players = [{name: "John"}, {name: "Paul"}, {name: "George"}, {name: "Ringo"}];
 
+var bestPlayer = null;
+var bestHand = null;
+
 var deck = cards.shuffle();
+
 
 // deal
 for (var i = 0; i < players.length; i++) {
@@ -50,21 +57,17 @@ for (var i = 0; i < players.length; i++) {
 
 var commonCards = [];
 
-var bestPlayer = getPlayerWithBestHand();
-echoBestPlayer(bestPlayer, 'deal');
+echoBestPlayer('deal');
 
 // now the flop
 commonCards = deck.splice(0, 3);
 
-bestPlayer = getPlayerWithBestHand();
-echoBestPlayer(bestPlayer, 'flop');
+echoBestPlayer('flop');
 
 commonCards.push.apply(commonCards, deck.splice(0, 1));
 
-bestPlayer = getPlayerWithBestHand();
-echoBestPlayer(bestPlayer, 'turn');
+echoBestPlayer('turn');
 
 commonCards.push.apply(commonCards, deck.splice(0, 1));
 
-bestPlayer = getPlayerWithBestHand();
-echoBestPlayer(bestPlayer, 'river');
+echoBestPlayer('river');
